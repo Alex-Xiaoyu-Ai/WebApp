@@ -61,6 +61,7 @@ namespace PatientUploadTest2.Controllers
             report.state = ReportState.Written;
             if (ModelState.IsValid)
             {
+
                 _context.Add(report);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
