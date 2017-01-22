@@ -3,6 +3,9 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "Angular.Material/1.1.1": {
+        "type": "package"
+      },
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -4430,6 +4433,33 @@
     }
   },
   "libraries": {
+    "Angular.Material/1.1.1": {
+      "sha512": "WWPOMq8eXFjeomX8gevwZoXSKDe7FpqQSqSyBJPZTZHSZRA/4zolvk/e6JeQgkVYHEYp27KMndMaQI/FPxJGXg==",
+      "type": "package",
+      "path": "Angular.Material/1.1.1",
+      "files": [
+        "Angular.Material.1.1.1.nupkg.sha512",
+        "Angular.Material.nuspec",
+        "content/Content/angular-material.css",
+        "content/Content/angular-material.layout-attributes.css",
+        "content/Content/angular-material.layout-attributes.min.css",
+        "content/Content/angular-material.layouts.css",
+        "content/Content/angular-material.layouts.ie_fixes.css",
+        "content/Content/angular-material.layouts.min.css",
+        "content/Content/angular-material.min.css",
+        "content/Scripts/angular-animate/angular-animate.js",
+        "content/Scripts/angular-animate/angular-animate.min.js",
+        "content/Scripts/angular-animate/angular-animate.min.js.map",
+        "content/Scripts/angular-aria/angular-aria.js",
+        "content/Scripts/angular-aria/angular-aria.min.js",
+        "content/Scripts/angular-aria/angular-aria.min.js.map",
+        "content/Scripts/angular-material/angular-material-mocks.js",
+        "content/Scripts/angular-material/angular-material.js",
+        "content/Scripts/angular-material/angular-material.min.js",
+        "content/Scripts/angular/angular.js",
+        "content/Scripts/angular/angular.min.js"
+      ]
+    },
     "Libuv/1.9.0": {
       "sha512": "9Q7AaqtQhS8JDSIvRBt6ODSLWDBI4c8YxNxyCQemWebBFUtBbc6M5Vi5Gz1ZyIUlTW3rZK9bIr5gnVyv0z7a2Q==",
       "type": "package",
@@ -11130,6 +11160,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Angular.Material >= 1.1.1",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.Cookies >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",

@@ -58,10 +58,11 @@ namespace PatientUploadTest2.Controllers
         public async Task<IActionResult> Create([Bind("Id,Auditor,Author,Diagnosis,Observation,PublishingTime,WritingTime,state")] Report report)
         {
             report.WritingTime = DateTime.Now;
-            report.state = ReportState.Written;
+            
             if (ModelState.IsValid)
             {
 
+                report.state = ReportState.Written;
                 _context.Add(report);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");

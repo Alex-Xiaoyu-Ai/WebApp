@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-PatientUploadTest2-506740bf-5b90-4028-be4b-984d69b64f0e",
 
   "dependencies": {
@@ -40,10 +40,11 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Angular.Material": "1.1.1"
   },
 
   "tools": {
