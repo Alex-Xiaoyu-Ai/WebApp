@@ -1,0 +1,115 @@
+@model PatientUploadTest2.Models.Patient
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Patient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HistoryPath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HistoryPath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Study)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Study)
+        </dd>
+    </dl>
+</div>
+
+<h2>Reports For This Patient</h2>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Reports.First().state)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports.First().Observation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports.First().Diagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports.First().Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports.First().WritingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports.First().Auditor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports.First().PublishingTime)
+            </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Reports)
+        {
+            <tr>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.state)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diagnosis)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.WritingTime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Auditor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishingTime)
+                </td>
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@ViewData["edit"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@ViewData["detail"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">@ViewData["delete"]</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

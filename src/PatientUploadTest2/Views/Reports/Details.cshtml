@@ -1,0 +1,184 @@
+@model PatientUploadTest2.Models.Report
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!--
+
+<html lang="en" class="gr__getbootstrap_com">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <title>报告编辑</title>
+   
+    
+    
+    
+   
+    
+    <link href="~/css/grid.css" rel="stylesheet"/>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    
+    
+</head>
+<body data-gr-c-s-loaded="true">
+    <div class="container">
+        <ul class="pager">
+            <h1>成都军区昆明总医院</h1>
+            <p class="lead">X线诊断报告单</p>
+        </ul>
+
+        <table class="table">
+            <tr>
+                <td>病人号：10231669</td>
+                <td>住院号：568967</td>
+                <td>影像号：0274278</td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>姓名：刘志军</td>
+                <td>性别：女</td>
+                <td>年龄：78</td>
+                <td>费别：医疗保险</td>
+            </tr>
+            <tr>
+                <td>检查项目：腹部立位</td>
+                <td>申请科室：消化内科</td>
+                <td>申请医生：胡焕朝</td>
+                <td>申请日期：2016-08-19</td>
+
+            </tr>
+        </table>
+
+        <h3>临床资料</h3>
+        <p>体检及相关检查</p>
+        <h4>主诉：</h4>
+        <p>描述主要症状</p>
+        <h4>临床判断：</h4>
+        <p>。。。。。。。。。</p>
+        <h3>检查记录</h3>
+        <p>腹部立位</p>
+        <h3>检查所见</h3>
+        <p>腹部立位片未见膈下游离气体及场馆异常扩张，未见异常气液平面</p>
+        <h3>印象</h3>
+        <p>腹部立位片未见明确急腹症现象</p>
+
+        <table class="table">
+            <tr>
+                <td>检查时间：2016-08-19</td>
+                <td>报告医师：角自华</td>
+                <td>初审医师：李鹏</td>
+                <td>审核医师：谭隆旺</td>
+
+
+            </tr>
+            <tr>
+                <td>报告时间：2016-08-19</td>
+                <td></td>
+                <td>签名：</td>
+                <td>签名：</td>
+
+            </tr>
+
+        </table>
+
+
+      
+        <script src="./ReportEditor_files/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<h2>Details</h2>
+
+<div>
+    <h4>Report</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Auditor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Auditor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishingTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PublishingTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WritingTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WritingTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,63 @@
+@model PatientUploadTest2.Models.PatientViewModels.PatientView
+
+
+
+<h2>@ViewData["h2"]</h2>
+
+<form asp-action="Create"  enctype="multipart/form-data">
+    <div class="form-horizontal">
+        
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Study" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Study" class="form-control" />
+                <span asp-validation-for="Study" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateOfBirth" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger" />
+            </div>
+        </div>
+        
+        <!-- Add: File Upload input element -->
+        <div class="form-group">
+            <label  class="col-md-2 control-label">@ViewData["uploadfile"]</label>
+            <div class="col-md-10">
+                <input type="file" asp-for="file" formenctype="multipart/form-data" class="form-control" multiple/>
+               
+            </div>
+        </div>
+
+
+        
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@ViewData["create"]" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">@ViewData["backtolist"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!-- 1. Page (Dashboard) Header -->
+<div class="page-header">
+    <h1>@ViewData["PageTitle"] <small>@ViewData["UserRole"]</small></h1>
+</div>
+
+<!-- 2. Page (Dashboard) Content  -->
+
+<div class="row">
+    <!-- 2.1 Manage your Account -->
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="..." alt="...">
+            <div class="caption">
+                <h3>@ViewData["ManageAccountTitle"]</h3>
+                <p>@ViewData["ManageAccountContent"]</p>
+                <p><a href="@ViewData["RedirectToAccount"]" class="btn btn-primary" role="button">@ViewData["ManageAccountButton"]</a> </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2.2 Enter Workspace -->
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="..." alt="...">
+            <div class="caption">
+                <h3>@ViewData["EnterWorkSpaceTitle"]</h3>
+                <p>@ViewData["EnterWorkSpaceContent"]</p>
+                <p><a href="@ViewData["RedirectToWorkSpace"]" class="btn btn-primary" role="button">@ViewData["EnterWorkspaceButton"]</a> </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

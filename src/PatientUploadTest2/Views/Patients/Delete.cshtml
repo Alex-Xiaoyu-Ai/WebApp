@@ -1,0 +1,43 @@
+@model PatientUploadTest2.Models.Patient
+
+
+<h2>@ViewData["h2"]</h2>
+
+<h3>@ViewData["h3"]</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HistoryPath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HistoryPath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Study)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Study)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="@ViewData["delete"]" class="btn btn-default" /> |
+            <a asp-action="Index">@ViewData["backtolist"]</a>
+        </div>
+    </form>
+</div>
