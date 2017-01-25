@@ -42,6 +42,7 @@ namespace PatientUploadTest2.Models
         public ReportState state { get; set; }
 
         [Display(Name ="检查所见")]
+        
         public String Observation { get; set; }
 
         [Display(Name ="诊断意见")]

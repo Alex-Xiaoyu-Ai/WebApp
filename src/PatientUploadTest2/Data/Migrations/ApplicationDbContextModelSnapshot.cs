@@ -232,6 +232,36 @@ namespace PatientUploadTest2.Data.Migrations
                     b.ToTable("Report");
                 });
 
+            modelBuilder.Entity("PatientUploadTest2.Models.ReportTemplate", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Diagnosis");
+
+                    b.Property<string>("Observation");
+
+                    b.Property<string>("Remark");
+
+                    b.Property<string>("Study");
+
+                    b.HasKey("id");
+
+                    b.ToTable("ReportTemplate");
+                });
+
+            modelBuilder.Entity("PatientUploadTest2.Models.Study", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Study");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")

@@ -28,5 +28,9 @@ namespace PatientUploadTest2.Data
         public DbSet<Report> Report { get; set; }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<ReportTemplate> ReportTemplate { get; set; }
+
+        public DbSet<Study> Study { get; set; }
     }
 }

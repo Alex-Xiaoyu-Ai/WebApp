@@ -121,6 +121,8 @@ namespace PatientUploadTest2.Controllers
             return View(report);
         }
 
+        
+
         // GET: Reports/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -138,6 +140,8 @@ namespace PatientUploadTest2.Controllers
             return View(report);
         }
 
+
+
         // POST: Reports/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -152,6 +156,50 @@ namespace PatientUploadTest2.Controllers
         private bool ReportExists(int id)
         {
             return _context.Report.Any(e => e.Id == id);
+        }
+
+
+        /* Web APIs for Ajax - jQuery Autocomplete */
+        // POST: Get Observation Template by querying the database with the content typed in
+        [HttpPost]
+        public IActionResult GetObservationTemplate(String Prefix)
+        {
+            //var results = _context.ReportTemplate.ToListAsync();
+
+            var results2 = (from result in _context.ReportTemplate where result.Observation.Contains(Prefix) select result.Observation).Take(10);
+            var result3 = results2.ToListAsync().Result;
+            return Json(result3);
+            /* Test Data
+            string[] result3 = new String[3];
+            result3[0] = "Canberra";
+            result3[1] = "Wellington";
+            result3[2] = "Beijing";
+            var result4 = from result in result3 where result.Contains(Prefix) select result;
+            return Json(result4);
+            */
+
+
+        }
+
+
+        [HttpPost]
+        // Get: Get Diagnosis Template by querying the database with the content typed in
+        public IActionResult GetDiagnosisTemplate(String Prefix)
+        {
+            //var results = _context.ReportTemplate.ToListAsync();
+            var results2 = (from result in _context.ReportTemplate where result.Diagnosis.Contains(Prefix) select result.Diagnosis).Take(10);
+            var result3 = results2.ToListAsync().Result;
+            return Json(result3);
+            /* Test Data
+            string[] result3=new String[3];
+            result3[0] = "Australia";
+            result3[1] = "New Zealand";
+            result3[2] = "China";
+            var result4 = from result in result3 where result.Contains(Prefix) select result;
+            return Json(result4);
+            */
+
+
         }
     }
 }

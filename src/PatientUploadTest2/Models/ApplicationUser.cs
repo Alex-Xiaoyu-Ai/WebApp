@@ -11,7 +11,7 @@ namespace PatientUploadTest2.Models
     public enum Roles
     {
 
-        HospitalClient, Doctor, Auditor, SuperUser
+        SuperUser, Doctor, Auditor, HospitalClient,  
                     
     }
     // Add profile data for application users by adding properties to the ApplicationUser class

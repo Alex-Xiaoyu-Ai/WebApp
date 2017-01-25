@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "09e6d00d20656a80d861af3405e8fa3fabdac355"
+    "signature": "8a9fe44928507b348a4598f14741c2aa8b1a33c3"
   },
   "compilationOptions": {
     "defines": [
@@ -34,10 +34,19 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+          "Angular.Material": "1.1.1",
+          "jQuery.UI.Combined": "1.12.1"
         },
         "compile": {
           "PatientUploadTest2.dll": {}
+        }
+      },
+      "Angular.Material/1.1.1": {},
+      "jQuery/1.12.4": {},
+      "jQuery.UI.Combined/1.12.1": {
+        "dependencies": {
+          "jQuery": "1.12.4"
         }
       },
       "Libuv/1.9.0": {
@@ -2893,10 +2902,19 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+          "Angular.Material": "1.1.1",
+          "jQuery.UI.Combined": "1.12.1"
         },
         "runtime": {
           "PatientUploadTest2.dll": {}
+        }
+      },
+      "Angular.Material/1.1.1": {},
+      "jQuery/1.12.4": {},
+      "jQuery.UI.Combined/1.12.1": {
+        "dependencies": {
+          "jQuery": "1.12.4"
         }
       },
       "Libuv/1.9.0": {
@@ -5635,6 +5653,21 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Angular.Material/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WWPOMq8eXFjeomX8gevwZoXSKDe7FpqQSqSyBJPZTZHSZRA/4zolvk/e6JeQgkVYHEYp27KMndMaQI/FPxJGXg=="
+    },
+    "jQuery/1.12.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pIYtWlFI5PGlJVB8jm9H96pAQ27jQhA9sCxMeGweeC3ByQRaB8BwkIuGdTt4go3IEKTmmfRC2y5k0FLFizWDQg=="
+    },
+    "jQuery.UI.Combined/1.12.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5B0LrPZ0TLlwplPRu43h7fgMtDxMMEF31HajUqHSOJ7bC6nyJUJy7AkcuGaJdBrrZAZutnSBgXT01BGiIIC4TQ=="
     },
     "Libuv/1.9.0": {
       "type": "package",
