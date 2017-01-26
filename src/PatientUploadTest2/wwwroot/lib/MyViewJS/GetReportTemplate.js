@@ -24,6 +24,31 @@
         minLength: 1
     });
 
+    $("#Study").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                type: "POST",
+                url: "/Patients/GetStudyName",
+                data: { Prefix: request.term },
+                dataType: "json",
+                success: function (data) {
+                    console.log("Observation Data received from server: " + data);
+                    response($.map(data, function (data) {
+                        return {
+                            label: data,
+                            value: data
+                        }
+                    }));
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+
+        },
+        minLength: 1
+    });
+
     $("#Diagnosis").autocomplete({
         source:            
             function (request, response) {

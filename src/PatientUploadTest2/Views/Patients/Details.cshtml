@@ -100,9 +100,15 @@
 
 
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">@ViewData["edit"]</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">@ViewData["detail"]</a> |
+                    <!--
+                        <a asp-action="Edit" asp-route-id="@item.Id">@ViewData["edit"]</a> |
+                     |
                     <a asp-action="Delete" asp-route-id="@item.Id">@ViewData["delete"]</a>
+                    -->
+                        
+                    
+                    <a asp-controller="Reports" asp-action="Details" asp-route-id="@item.Id" >@ViewData["detail"]</a>
+                    
                 </td>
             </tr>
         }
@@ -110,6 +116,10 @@
 </table>
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    @if (User.IsInRole("Doctor") || User.IsInRole("Auditor"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.id">Edit</a>
+    }
+    
     <a asp-action="Index">Back to List</a>
 </div>

@@ -47,7 +47,7 @@ namespace PatientUploadTest2.Controllers
             ViewData["edit"] = "±à¼­";
             ViewData["detail"] = "ÏêÏ¸";
             ViewData["delete"] = "É¾³ý";
-            
+            ViewData["backtodashboard"] = "·µ»ØÖ÷Ò³";
             var patients = _context.Patient.Include(s => s.Reports).AsNoTracking();
             return View(await patients.ToListAsync());
         }
@@ -55,6 +55,8 @@ namespace PatientUploadTest2.Controllers
         // GET: Patients/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            //ViewData["edit"] = "±à¼­";
+            ViewData["detail"] = "²é¿´";
             if (id == null)
             {
                 return NotFound();
@@ -100,7 +102,6 @@ namespace PatientUploadTest2.Controllers
             {
                 //createAndSaveFile(patientViewModel.file, path);
                 realPatient.HistoryPath = path;
-                
             }
 
             
@@ -111,6 +112,7 @@ namespace PatientUploadTest2.Controllers
                 Report report = new Report
                 {
                     Patient = realPatient,
+                    HospitalClient = currentUser.Employer,
                     
                     state = ReportState.Unwritten
                     
@@ -228,5 +230,15 @@ namespace PatientUploadTest2.Controllers
         {
             return _context.Patient.Any(e => e.id == id);
         }
+
+        /* Web APIs for Ajax - Autocomplete */
+        [HttpPost]
+        public IActionResult GetStudyName(String Prefix)
+        {
+            var result = (from study in _context.Study where study.Name.Contains(Prefix) select study.Name).Distinct().Take(10);
+            
+            return Json(result.ToListAsync().Result);
+        }
+
     }
 }

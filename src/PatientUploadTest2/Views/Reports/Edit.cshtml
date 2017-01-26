@@ -1,5 +1,6 @@
 @model PatientUploadTest2.Models.Report
-
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Edit";
 }
@@ -11,7 +12,9 @@
             <h4>Report</h4>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <input type="hidden" asp-for="Id" />
+            <!--  
             <div class="form-group">
                 <label asp-for="Auditor" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
@@ -26,7 +29,7 @@
                     <span asp-validation-for="Author" class="text-danger" />
                 </div>
             </div>
-            
+            -->
             
             <div class="form-group">
                 <label asp-for="Diagnosis" class="col-md-2 control-label"></label>
@@ -43,7 +46,7 @@
                     <span asp-validation-for="Observation" class="text-danger" />
                 </div>
             </div>
-               
+            <!-- 
             <div class="form-group">
                 <label asp-for="PublishingTime" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
@@ -58,13 +61,23 @@
                     <span asp-validation-for="WritingTime" class="text-danger" />
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="state" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <select asp-for="state" class="form-control"></select>
-                    <span asp-validation-for="state" class="text-danger" />
+            -->
+            @if ( User.IsInRole("Auditor"))
+            {
+                <div class="form-group">
+                    <label asp-for="state" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <select asp-for="state" class="form-control">
+                            <option value="0">Approved</option>
+                            <option value="2">Rejected</option>
+                        </select>
+                        <span asp-validation-for="state" class="text-danger" />
+                    </div>
                 </div>
-            </div>
+
+            }
+
+            
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" />

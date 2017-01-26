@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using PatientUploadTest2.Data;
 using PatientUploadTest2.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Hosting;
 
 namespace PatientUploadTest2.Controllers
 {
@@ -15,15 +17,22 @@ namespace PatientUploadTest2.Controllers
     public class ReportsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ReportsController(ApplicationDbContext context)
+        private UserManager<ApplicationUser> _userManager;
+        private IHostingEnvironment _environment;
+        public ReportsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IHostingEnvironment environment)
         {
+            _environment = environment;
+            _userManager = userManager;
             _context = context;    
         }
 
         // GET: Reports
         public async Task<IActionResult> Index()
         {
+            ViewData["h2"] = "报告列表";
+            ViewData["edit"] = "编写";
+            ViewData["detail"] = "详细";
+
             return View(await _context.Report.Include(p=>p.Patient).ToListAsync());
         }
 
@@ -83,6 +92,7 @@ namespace PatientUploadTest2.Controllers
             {
                 return NotFound();
             }
+            
             return View(report);
         }
 
@@ -100,6 +110,23 @@ namespace PatientUploadTest2.Controllers
 
             if (ModelState.IsValid)
             {
+
+                // Add Authorized Operation: Autofill based on current user roles.
+
+                if (report.Observation != null && report.Diagnosis != null)
+                {
+                    if (HttpContext.User.IsInRole("Auditor"))
+                    {
+                        report.Auditor =  _userManager.GetUserAsync(HttpContext.User).Result.Name;
+                        if (report.state == ReportState.Approved)
+                        {
+                            report.PublishingTime = DateTime.Now;
+                        }
+                    }
+                    report.WritingTime = DateTime.Now;
+                    report.state = ReportState.Written;
+                }
+
                 try
                 {
                     _context.Update(report);

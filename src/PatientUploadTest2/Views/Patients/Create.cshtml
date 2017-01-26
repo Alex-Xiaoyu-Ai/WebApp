@@ -21,7 +21,7 @@
         <div class="form-group">
             <label asp-for="Study" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Study" class="form-control" />
+                <input asp-for="Study" id="Study" class="form-control" />
                 <span asp-validation-for="Study" class="text-danger" />
             </div>
         </div>
@@ -59,5 +59,7 @@
 </div>
 
 @section Scripts {
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<script src="~/lib/MyViewJS/GetReportTemplate.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

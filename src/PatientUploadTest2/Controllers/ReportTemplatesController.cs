@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PatientUploadTest2.Data;
 using PatientUploadTest2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PatientUploadTest2.Controllers
 {
+    [Authorize]
     public class ReportTemplatesController : Controller
     {
         private readonly ApplicationDbContext _context;
